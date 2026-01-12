@@ -1,0 +1,80 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#bgGradient)" stroke="url(#borderGradient)" stroke-width="2"/>
+  
+  <!-- Connection Nodes -->
+  <g id="nodes">
+    <!-- Top nodes -->
+    <circle cx="80" cy="40" r="8" fill="url(#nodeGradient)"/>
+    <circle cx="120" cy="35" r="8" fill="url(#nodeGradient)"/>
+    <circle cx="160" cy="50" r="8" fill="url(#nodeGradient)"/>
+    
+    <!-- Left nodes -->
+    <circle cx="40" cy="80" r="8" fill="url(#nodeGradient)"/>
+    <circle cx="35" cy="120" r="8" fill="url(#nodeGradient)"/>
+    
+    <!-- Right nodes -->
+    <circle cx="160" cy="120" r="8" fill="url(#nodeGradient)"/>
+    <circle cx="165" cy="160" r="8" fill="url(#nodeGradient)"/>
+    
+    <!-- Bottom nodes -->
+    <circle cx="80" cy="165" r="8" fill="url(#nodeGradient)"/>
+    <circle cx="120" cy="160" r="8" fill="url(#nodeGradient)"/>
+  </g>
+  
+  <!-- Connection Lines -->
+  <g id="connections" stroke="url(#lineGradient)" stroke-width="3" fill="none">
+    <!-- Lines to center -->
+    <line x1="80" y1="40" x2="100" y2="100"/>
+    <line x1="120" y1="35" x2="100" y2="100"/>
+    <line x1="160" y1="50" x2="100" y2="100"/>
+    <line x1="40" y1="80" x2="100" y2="100"/>
+    <line x1="35" y1="120" x2="100" y2="100"/>
+    <line x1="160" y1="120" x2="100" y2="100"/>
+    <line x1="165" y1="160" x2="100" y2="100"/>
+    <line x1="80" y1="165" x2="100" y2="100"/>
+    <line x1="120" y1="160" x2="100" y2="100"/>
+  </g>
+  
+  <!-- Central Hub -->
+  <circle cx="100" cy="100" r="25" fill="url(#hubGradient)" stroke="url(#hubBorder)" stroke-width="2"/>
+  
+  <!-- Tool Icon in Center -->
+  <g id="toolIcon" transform="translate(85, 85)">
+    <path d="M5 5L25 25M25 5L5 25M15 0V30M0 15H30" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:0.9"/>
+    </linearGradient>
+    
+    <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1"/>
+    </linearGradient>
+    
+    <radialGradient id="nodeGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1"/>
+    </radialGradient>
+    
+    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.8"/>
+    </linearGradient>
+    
+    <radialGradient id="hubGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1"/>
+    </radialGradient>
+    
+    <linearGradient id="hubBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+</svg>

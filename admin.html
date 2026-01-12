@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Profile - NexusTools</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="95" fill="url(#bgGradient)" stroke="url(#borderGradient)" stroke-width="4"/>
+                    <g id="nodes">
+                        <circle cx="80" cy="40" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="120" cy="35" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="160" cy="50" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="40" cy="80" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="35" cy="120" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="160" cy="120" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="165" cy="160" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="80" cy="165" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="120" cy="160" r="8" fill="url(#nodeGradient)"/>
+                    </g>
+                    <g id="connections" stroke="url(#lineGradient)" stroke-width="6" fill="none">
+                        <line x1="80" y1="40" x2="100" y2="100"/>
+                        <line x1="120" y1="35" x2="100" y2="100"/>
+                        <line x1="160" y1="50" x2="100" y2="100"/>
+                        <line x1="40" y1="80" x2="100" y2="100"/>
+                        <line x1="35" y1="120" x2="100" y2="100"/>
+                        <line x1="160" y1="120" x2="100" y2="100"/>
+                        <line x1="165" y1="160" x2="100" y2="100"/>
+                        <line x1="80" y1="165" x2="100" y2="100"/>
+                        <line x1="120" y1="160" x2="100" y2="100"/>
+                    </g>
+                    <circle cx="100" cy="100" r="25" fill="url(#hubGradient)" stroke="url(#hubBorder)" stroke-width="4"/>
+                    <g id="toolIcon" transform="translate(85, 85)">
+                        <path d="M5 5L25 25M25 5L5 25M15 0V30M0 15H30" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    </g>
+                    <defs>
+                        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#0f172a;stop-opacity:0.9"/>
+                            <stop offset="100%" style="stop-color:#1e293b;stop-opacity:0.9"/>
+                        </linearGradient>
+                        <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1"/>
+                            <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1"/>
+                        </linearGradient>
+                        <radialGradient id="nodeGradient" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" style="stop-color:#10b981;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#059669;stop-opacity:1"/>
+                        </radialGradient>
+                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.8"/>
+                            <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.8"/>
+                        </linearGradient>
+                        <radialGradient id="hubGradient" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1"/>
+                        </radialGradient>
+                        <linearGradient id="hubBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text">NexusTools</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-page="home">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M3 7L10 2L17 7V17C17 17.5304 16.7893 18.0391 16.4142 18.4142C16.0391 18.7893 15.5304 19 15 19H5C4.46957 19 3.96086 18.7893 3.58579 18.4142C3.21071 18.0391 3 17.5304 3 17V7Z" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M8 19V11H12V19" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                        <span class="nav-text">Trang chủ</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="muakey.html" class="nav-link" data-page="buykey">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"/>
+                            <path d="M15 9L9 15M9 9L15 15"/>
+                        </svg>
+                        <span class="nav-text">Nâng Cấp VIP</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="chinhanhthe.html" class="nav-link" data-page="text">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M8 6H16M8 12H16M8 18H14M4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6C2 4.89543 2.89543 4 4 4Z" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                        <span class="nav-text">ẢNH THẺ MASTER</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="promt.html" class="nav-link" data-page="image">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <rect x="3" y="5" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="7.5" cy="9.5" r="1.5" fill="currentColor"/>
+                            <path d="M14 13L10 9L5 14" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                        <span class="nav-text">PROMPT CHỈNH ẢNH AI</span>
+                    </a>
+                </li>
+                 <li class="nav-item active">
+                    <a href="admin.html" class="nav-link" data-page="admin">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                             <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" />
+                        </svg>
+                        <span class="nav-text">Admin Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 2V4M10 16V18M4 10H2M6.31412 6.31412L4.8999 4.8999M15.6859 6.31412L17.1001 4.8999M6.31412 13.6859L4.8999 15.1001M15.6859 13.6859L17.1001 15.1001M18 10H16M14 10C14 12.2091 12.2091 14 10 14C7.79086 14 6 12.2091 6 10C6 7.79086 7.79086 6 10 6C12.2091 6 14 7.79086 14 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="nav-text">Chế độ tối</span>
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <section class="hero" style="min-height: 100vh; padding-top: 0;">
+            <div class="hero-background">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-2"></div>
+                <div class="gradient-orb orb-3"></div>
+                <div class="hero-pattern"></div>
+            </div>
+
+            <div class="admin-container">
+                <div class="admin-profile">
+                    <div class="admin-avatar-wrapper">
+                        <div class="admin-avatar-ring"></div>
+                        <img src="https://ui-avatars.com/api/?name=Viet+Nguyen&background=6366f1&color=fff&size=200" alt="Admin Avatar" class="admin-avatar">
+                    </div>
+                    <h1 class="admin-name glitch" data-text="Nguyễn Bùi Xuân Việt">Nguyễn Bùi Xuân Việt</h1>
+                    <p class="admin-role">Sinh viên FPT Polytechnic | Full Stack Developer</p>
+                    
+                    <!-- Stats Row -->
+                    <div class="stats-row">
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="50">0</span>
+                            <span class="stat-label">Dự Án Hoàn Thành</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="3">0</span>
+                            <span class="stat-label">Năm Kinh Nghiệm</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="8760">0</span>
+                            <span class="stat-label">Giờ Code</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="100">0</span>
+                            <span class="stat-label">Sự Hài Lòng</span>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="admin-grid">
+                    <!-- Education Section -->
+                    <div class="admin-card">
+                        <h3 class="card-title"><i class="fas fa-graduation-cap"></i> Học Vấn</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <span class="timeline-date">2024 - Hiện tại</span>
+                                <h4 class="timeline-title">FPT Polytechnic</h4>
+                                <p class="timeline-desc">Chuyên ngành Phát triển phần mềm (Software Engineering). Đang theo học và phát triển các dự án thực tế.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-date">2023</span>
+                                <h4 class="timeline-title">Chứng Chỉ Full Stack</h4>
+                                <p class="timeline-desc">Hoàn thành khóa học Full Stack Web Development chuyên sâu.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Section -->
+                    <div class="admin-card">
+                        <h3 class="card-title"><i class="fas fa-code"></i> Kỹ Năng Chuyên Môn</h3>
+                        
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>HTML5/CSS3/JS</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" style="width: 0%" data-width="95%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>ReactJS / NodeJS</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>UI/UX Design</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" style="width: 0%" data-width="90%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projects Section -->
+                    <div class="admin-card">
+                        <h3 class="card-title"><i class="fas fa-rocket"></i> Dự Án Nổi Bật</h3>
+                        <p style="margin-bottom: 1.5rem; color: #cbd5e1;">
+                            Các dự án tiêu biểu đã được triển khai và vận hành thực tế.
+                        </p>
+                        <ul class="project-list">
+                            <li class="project-item">
+                                <div class="project-icon"><i class="fas fa-magic"></i></div>
+                                <span>NexusTools - AI Platform</span>
+                            </li>
+                            <li class="project-item">
+                                <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
+                                <span>Hệ Thống Bảo Mật Đa Tầng</span>
+                            </li>
+                            <li class="project-item">
+                                <div class="project-icon"><i class="fas fa-mobile-alt"></i></div>
+                                <span>Mobile App E-commerce</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <a href="#" class="btn-glow">Liên Hệ Ngay</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Simple script to handle sidebar toggle and theme (copied logic from main script for standalone functionality if needed, but relying on styles.css mainly)
+        // Also animation trigger
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate Stats Counter
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000; // ms
+                const increment = target / (duration / 16); // 60fps
+                
+                let current = 0;
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.innerText = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCounter();
+            });
+
+            // Animate skill bars
+            const skillBars = document.querySelectorAll('.skill-bar-fill');
+            skillBars.forEach(bar => {
+                setTimeout(() => {
+                    bar.style.width = bar.getAttribute('data-width');
+                }, 500);
+            });
+
+            // Sidebar Toggle Logic (Basic)
+            const sidebar = document.getElementById('sidebar');
+            const toggleBtn = document.getElementById('sidebarToggle');
+            const mainContent = document.querySelector('.main-content');
+            
+            toggleBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('collapsed');
+                if (window.innerWidth > 768) {
+                   mainContent.style.marginLeft = sidebar.classList.contains('collapsed') ? 'var(--sidebar-collapsed-width)' : 'var(--sidebar-width)';
+                }
+            });
+
+            // Theme Toggle Logic
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            
+            // Check local storage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.setAttribute('data-theme', savedTheme);
+            }
+
+            themeToggle.addEventListener('click', () => {
+                if (body.getAttribute('data-theme') === 'dark') {
+                    body.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    body.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        });
+    </script>
+    <script src="music.js"></script>
+</body>
+</html>

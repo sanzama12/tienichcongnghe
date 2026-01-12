@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán - NexusTools</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="payment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar Navigation Removed for Payment Page -->
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <div class="container">
+            <header class="page-header">
+                <h1>💳 Thanh Toán</h1>
+                <p>Hoàn tất đơn hàng để kích hoạt ngay lập tức</p>
+            </header>
+
+            <div class="payment-container">
+                <!-- Payment Methods -->
+                <div class="payment-methods-section">
+                    <h3>Chọn phương thức thanh toán</h3>
+                    
+                    <div class="methods-grid">
+                        <div class="method-card active" data-method="vietcombank">
+                            <div class="method-icon vcb">VCB</div>
+                            <span>Vietcombank</span>
+                        </div>
+                        <div class="method-card" data-method="mbbank">
+                            <div class="method-icon mb">MB</div>
+                            <span>MB Bank</span>
+                        </div>
+                        <div class="method-card" data-method="momo">
+                            <div class="method-icon momo">MoMo</div>
+                            <span>Ví MoMo</span>
+                        </div>
+                        <div class="method-card" data-method="card">
+                            <div class="method-icon card">Card</div>
+                            <span>Thẻ Cào <br><small style="color: #ef4444; font-size: 0.8em;">(Bảo trì)</small></span>
+                        </div>
+                    </div>
+
+                    <div class="payment-details">
+                        <!-- Vietcombank -->
+                        <div id="vietcombank-content" class="method-content active">
+                            <div class="qr-container">
+                                <div class="qr-placeholder">
+                                    <img src="https://img.vietqr.io/image/VCB-1014589999-compact2.jpg?amount=0&addInfo=MUA%20KEY" alt="Vietcombank QR" id="vcb-qr">
+                                </div>
+                                <div class="bank-info">
+                                    <p>Ngân hàng: <strong>Vietcombank</strong></p>
+                                    <p>Số tài khoản: <strong>0335384174</strong></p>
+                                    <p>Chủ tài khoản: <strong>NGUYEN BUI XUAN VIET</strong></p>
+                                    <p>Nội dung: <strong class="highlight-text" id="transfer-content">MUA KEY VIP</strong></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MB Bank -->
+                        <div id="mbbank-content" class="method-content">
+                            <div class="qr-container">
+                                <div class="qr-placeholder">
+                                    <img src="https://i.ibb.co/TqJ72SVw/z7421094659108-a7921526567fae3adeb7e876d767b71e.jpg" onerror="this.src='https://ibb.co/TqJ72SVw'" alt="MB Bank QR" id="mb-qr">
+                                </div>
+                                <div class="bank-info">
+                                    <p>Ngân hàng: <strong>MB Bank (Quân Đội)</strong></p>
+                                    <p>Số tài khoản: <strong>0335384174</strong></p>
+                                    <p>Chủ tài khoản: <strong>NGUYEN BUI XUAN VIET</strong></p>
+                                    <p>Nội dung: <strong class="highlight-text" id="transfer-content-mb">MUA KEY VIP</strong></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Momo -->
+                        <div id="momo-content" class="method-content">
+                            <div class="qr-container">
+                                <div class="qr-placeholder" style="background: #a50064; color: white; display: flex; align-items: center; justify-content: center;">
+                                    [QR MOMO]
+                                </div>
+                                <div class="bank-info">
+                                    <p>Ví điện tử: <strong>MoMo</strong></p>
+                                    <p>Số điện thoại: <strong>0909</strong></p>
+                                    <p>Chủ tài khoản: <strong>NGUYEN VAN ADMIN</strong></p>
+                                    <p>Lời nhắn: <strong class="highlight-text" id="transfer-content-momo">MUA KEY VIP</strong></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card -->
+                        <div id="card-content" class="method-content">
+                            <div style="text-align: center; padding: 2rem; color: #ef4444; background: rgba(239, 68, 68, 0.1); border-radius: 1rem; border: 1px solid rgba(239, 68, 68, 0.2);">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">⚠️</div>
+                                <h3 style="color: #ef4444; margin-bottom: 0.5rem;">Hệ thống nạp thẻ đang bảo trì</h3>
+                                <p style="color: var(--text-secondary);">Vui lòng thanh toán qua Ngân hàng (VCB/MB) hoặc Ví MoMo để được kích hoạt tự động ngay lập tức.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary-section">
+                    <div class="summary-card">
+                        <h3>Thông tin đơn hàng</h3>
+                        <div class="summary-row">
+                            <span>Gói dịch vụ</span>
+                            <span id="summary-plan" class="highlight">VIP Pro</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Thời hạn</span>
+                            <span id="summary-duration">30 ngày</span>
+                        </div>
+                        <div class="summary-row divider">
+                            <span>Đơn giá</span>
+                            <span id="summary-price">99.000đ</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Thành tiền</span>
+                            <span id="summary-total">99.000đ</span>
+                        </div>
+
+                        <div class="alert-box">
+                            <p>Sau khi chuyển khoản, hệ thống sẽ tự động kích hoạt trong 1-3 phút.</p>
+                        </div>
+
+                        <button class="confirm-btn" id="confirmPaymentBtn">
+                            Xác Nhận Đã Chuyển Khoản
+                        </button>
+                        <button class="cancel-btn" onclick="history.back()">Quay lại</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Payment Overlay (Hidden by default) -->
+    <div id="paymentOverlay" class="payment-overlay">
+        <div class="payment-modal">
+            <button class="close-modal" onclick="closePaymentModal()">&times;</button>
+            
+            <!-- Warning/Processing Step -->
+            <div id="warningStep" class="modal-step">
+                <div class="warning-content">
+                    <div class="warning-icon">
+                        <span class="loader-spinner"></span>
+                    </div>
+                    <h2>Đang Xử Lý Giao Dịch</h2>
+                    <p class="warning-message">Quý khách chưa thanh toán và đang duyệt xin vui lòng đợi...</p>
+                    <p class="sub-message">Hệ thống đang kiểm tra giao dịch của bạn. Quá trình này có thể mất vài phút.</p>
+                    
+                    <div class="modal-actions">
+                        <button id="recheckBtn" class="action-btn warning">Tôi đã chuyển khoản</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beautiful Key Display Step -->
+            <div id="keyStep" class="modal-step" style="display: none;">
+                <div class="success-content">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h2>Thanh Toán Thành Công!</h2>
+                    <p>Cảm ơn bạn đã nâng cấp. Đây là mã kích hoạt của bạn:</p>
+                    
+                    <div class="key-container glow-effect">
+                        <div class="key-label" id="keyLabel">LICENSE KEY</div>
+                        <div class="key-value" id="finalKey">LOADING...</div>
+                        <button class="copy-key-btn" id="copyKeyBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            Sao chép
+                        </button>
+                    </div>
+                    
+                    <p class="note">Vui lòng lưu lại mã này. Mã chỉ hiển thị một lần!</p>
+                    <button class="action-btn close-final" onclick="finishPayment()">Hoàn tất</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <style>
+        /* Modal Core Styles */
+        .payment-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .payment-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .payment-modal {
+            background: #1e293b;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .payment-overlay.active .payment-modal {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #fff;
+        }
+
+        /* Warning Styles */
+        .warning-content {
+            text-align: center;
+            padding: 1rem 0;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .warning-icon {
+            margin-bottom: 1.5rem;
+        }
+
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-bottom-color: #f59e0b;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+        }
+
+        .warning-message {
+            color: #f59e0b;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .sub-message {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .action-btn.warning {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .action-btn.warning:hover {
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+            transform: translateY(-2px);
+        }
+
+        @keyframes rotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Key Step Styles */
+        .success-content {
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .success-icon {
+            color: #22c55e;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .key-container.glow-effect {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(99, 102, 241, 0.5);
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.2), inset 0 0 20px rgba(99, 102, 241, 0.1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .key-container.glow-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        .key-label {
+            color: #94a3b8;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .key-value {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 1.8rem;
+            background: linear-gradient(to right, #fff, #a5b4fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            word-break: break-all;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .copy-key-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .copy-key-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .action-btn.close-final {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            width: 100%;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .action-btn.close-final:hover {
+            background: #2563eb;
+        }
+
+        /* Shake Animation */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        /* Toast */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+        
+        .toast {
+            background: rgba(30, 41, 59, 0.95);
+            color: #fff;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideIn 0.3s ease;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .toast.success { border-left-color: #22c55e; }
+        .toast.error { border-left-color: #ef4444; }
+        .toast.warning { border-left-color: #f59e0b; }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script src="payment.js"></script>
+</body>
+</html>

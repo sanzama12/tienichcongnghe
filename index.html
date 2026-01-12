@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusTools - Professional Tool Suite</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background Circle -->
+                    <circle cx="100" cy="100" r="95" fill="url(#bgGradient)" stroke="url(#borderGradient)" stroke-width="4"/>
+                    
+                    <!-- Connection Nodes -->
+                    <g id="nodes">
+                        <!-- Top nodes -->
+                        <circle cx="80" cy="40" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="120" cy="35" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="160" cy="50" r="8" fill="url(#nodeGradient)"/>
+                        
+                        <!-- Left nodes -->
+                        <circle cx="40" cy="80" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="35" cy="120" r="8" fill="url(#nodeGradient)"/>
+                        
+                        <!-- Right nodes -->
+                        <circle cx="160" cy="120" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="165" cy="160" r="8" fill="url(#nodeGradient)"/>
+                        
+                        <!-- Bottom nodes -->
+                        <circle cx="80" cy="165" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="120" cy="160" r="8" fill="url(#nodeGradient)"/>
+                    </g>
+                    
+                    <!-- Connection Lines -->
+                    <g id="connections" stroke="url(#lineGradient)" stroke-width="6" fill="none">
+                        <!-- Lines to center -->
+                        <line x1="80" y1="40" x2="100" y2="100"/>
+                        <line x1="120" y1="35" x2="100" y2="100"/>
+                        <line x1="160" y1="50" x2="100" y2="100"/>
+                        <line x1="40" y1="80" x2="100" y2="100"/>
+                        <line x1="35" y1="120" x2="100" y2="100"/>
+                        <line x1="160" y1="120" x2="100" y2="100"/>
+                        <line x1="165" y1="160" x2="100" y2="100"/>
+                        <line x1="80" y1="165" x2="100" y2="100"/>
+                        <line x1="120" y1="160" x2="100" y2="100"/>
+                    </g>
+                    
+                    <!-- Central Hub -->
+                    <circle cx="100" cy="100" r="25" fill="url(#hubGradient)" stroke="url(#hubBorder)" stroke-width="4"/>
+                    
+                    <!-- Tool Icon in Center -->
+                    <g id="toolIcon" transform="translate(85, 85)">
+                        <path d="M5 5L25 25M25 5L5 25M15 0V30M0 15H30" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    </g>
+                    
+                    <!-- Gradients -->
+                    <defs>
+                        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#0f172a;stop-opacity:0.9"/>
+                            <stop offset="100%" style="stop-color:#1e293b;stop-opacity:0.9"/>
+                        </linearGradient>
+                        
+                        <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1"/>
+                            <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1"/>
+                        </linearGradient>
+                        
+                        <radialGradient id="nodeGradient" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" style="stop-color:#10b981;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#059669;stop-opacity:1"/>
+                        </radialGradient>
+                        
+                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.8"/>
+                            <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.8"/>
+                        </linearGradient>
+                        
+                        <radialGradient id="hubGradient" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1"/>
+                        </radialGradient>
+                        
+                        <linearGradient id="hubBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text">NexusTools</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="index.html" class="nav-link" data-page="home">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M3 7L10 2L17 7V17C17 17.5304 16.7893 18.0391 16.4142 18.4142C16.0391 18.7893 15.5304 19 15 19H5C4.46957 19 3.96086 18.7893 3.58579 18.4142C3.21071 18.0391 3 17.5304 3 17V7Z" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M8 19V11H12V19" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                        <span class="nav-text">Trang chủ</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="muakey.html" class="nav-link" data-page="buykey">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"/>
+                            <path d="M15 9L9 15M9 9L15 15"/>
+                        </svg>
+                        <span class="nav-text">Nâng Cấp VIP</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="chinhanhthe.html" class="nav-link" data-page="text">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M8 6H16M8 12H16M8 18H14M4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6C2 4.89543 2.89543 4 4 4Z" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                        <span class="nav-text">ẢNH THẺ MASTER</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="promt.html" class="nav-link" data-page="image">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <rect x="3" y="5" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="7.5" cy="9.5" r="1.5" fill="currentColor"/>
+                            <path d="M14 13L10 9L5 14" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                        <span class="nav-text">PROMPT CHỈNH ẢNH AI</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="admin.html" class="nav-link" data-page="admin">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                             <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" />
+                        </svg>
+                        <span class="nav-text">Admin Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 2V4M10 16V18M4 10H2M6.31412 6.31412L4.8999 4.8999M15.6859 6.31412L17.1001 4.8999M6.31412 13.6859L4.8999 15.1001M15.6859 13.6859L17.1001 15.1001M18 10H16M14 10C14 12.2091 12.2091 14 10 14C7.79086 14 6 12.2091 6 10C6 7.79086 7.79086 6 10 6C12.2091 6 14 7.79086 14 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="nav-text">Chế độ tối</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-background">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-2"></div>
+                <div class="gradient-orb orb-3"></div>
+                <div class="hero-pattern"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8 1L10 5L15 5.5L11.5 9L12.5 14L8 11.5L3.5 14L4.5 9L1 5.5L6 5L8 1Z" fill="currentColor"/>
+                        </svg>
+                        <span>Miễn phí 100%</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="gradient-text">NexusTools</span><br>
+                        <span class="hero-subtitle">Professional Suite</span>
+                    </h1>
+                    <p class="hero-description">
+                        Khám phá bộ công cụ chuyên nghiệp được thiết kế để nâng cao năng suất làm việc của bạn. 
+                        Từ xử lý văn bản, lọc dữ liệu đến mã hóa bảo mật - tất cả đều có sẵn ngay trên trình duyệt.
+                    </p>
+                    
+                    <!-- Quick Search -->
+                    <div class="hero-search">
+                        <div class="search-container">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="search-icon">
+                                <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <input type="text" id="quickSearch" placeholder="Tìm kiếm công cụ... (Ctrl+K)" class="search-input">
+                            <div class="search-shortcut">⌘K</div>
+                        </div>
+                        <div id="searchResults" class="search-results" style="display: none;"></div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="tools/text-tools.html" class="btn btn-primary">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M13 7L19 13L13 19M19 13H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Bắt đầu ngay</span>
+                        </a>
+                        <a href="#tools" class="btn btn-secondary">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 1V19M1 10H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Xem tất cả công cụ</span>
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 7L12 3L4 7M20 7L12 11M20 7V17L12 21M12 11L4 7M12 11V21M4 7V17L12 21" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Công cụ đa dạng</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">50K+</div>
+                                <div class="stat-label">Người dùng tin tưởng</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label">Miễn phí hoàn toàn</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Access Section -->
+        <section class="quick-access-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">⚡ Truy cập nhanh</h2>
+                    <p class="section-subtitle">Các công cụ được sử dụng nhiều nhất</p>
+                </div>
+                <div class="quick-access-grid" id="quickAccessGrid">
+                    <!-- Quick access items will be generated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Overview Section -->
+        <section class="tools-overview" id="tools">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Danh Mục Công Cụ</h2>
+                    <p class="section-subtitle">Chọn danh mục để khám phá các công cụ phù hợp</p>
+                </div>
+                <div class="tools-grid" id="toolsGrid">
+                    <!-- Tool cards will be generated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Tại Sao Chọn ToolHub?</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <rect width="32" height="32" rx="8" fill="url(#featureGrad1)"/>
+                                <path d="M16 10V22M10 16H22" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="featureGrad1" x1="0" y1="0" x2="32" y2="32">
+                                        <stop stop-color="#6366F1"/>
+                                        <stop offset="1" stop-color="#8B5CF6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>Miễn phí hoàn toàn</h3>
+                        <p>Tất cả công cụ đều miễn phí, không cần đăng ký hay thanh toán</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <rect width="32" height="32" rx="8" fill="url(#featureGrad2)"/>
+                                <path d="M16 8L18 14L24 16L18 18L16 24L14 18L8 16L14 14L16 8Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                                <defs>
+                                    <linearGradient id="featureGrad2" x1="0" y1="0" x2="32" y2="32">
+                                        <stop stop-color="#EC4899"/>
+                                        <stop offset="1" stop-color="#F43F5E"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>Dễ sử dụng</h3>
+                        <p>Giao diện trực quan, thân thiện với người dùng, không cần hướng dẫn</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <rect width="32" height="32" rx="8" fill="url(#featureGrad3)"/>
+                                <path d="M16 11C13.239 11 11 13.239 11 16C11 18.761 13.239 21 16 21C18.761 21 21 18.761 21 16C21 13.239 18.761 11 16 11Z" stroke="white" stroke-width="2"/>
+                                <path d="M16 8V10M16 22V24M24 16H22M10 16H8M19.0711 12.9289L17.6569 14.3431M14.3431 17.6569L12.9289 19.0711M19.0711 19.0711L17.6569 17.6569M14.3431 14.3431L12.9289 12.9289" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="featureGrad3" x1="0" y1="0" x2="32" y2="32">
+                                        <stop stop-color="#F59E0B"/>
+                                        <stop offset="1" stop-color="#EF4444"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>Không cần cài đặt</h3>
+                        <p>Sử dụng trực tiếp trên trình duyệt, không cần tải hay cài đặt phần mềm</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <rect width="32" height="32" rx="8" fill="url(#featureGrad4)"/>
+                                <path d="M16 10V16L20 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="16" cy="16" r="6" stroke="white" stroke-width="2"/>
+                                <defs>
+                                    <linearGradient id="featureGrad4" x1="0" y1="0" x2="32" y2="32">
+                                        <stop stop-color="#10B981"/>
+                                        <stop offset="1" stop-color="#059669"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>Nhanh chóng</h3>
+                        <p>Tốc độ xử lý nhanh, kết quả tức thì, tiết kiệm thời gian</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Status Dashboard -->
+        <section class="api-status-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">🔧 Trạng thái hệ thống</h2>
+                    <p class="section-subtitle">Theo dõi tình trạng API và dịch vụ</p>
+                    <button id="refreshStatusBtn" class="refresh-btn" onclick="checkAPIStatus()" title="Làm mới trạng thái">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M1 4V10H7M23 20V14H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20.49 9C20.0847 7.58625 19.3088 6.31641 18.2415 5.31378C17.1743 4.31115 15.8549 3.61555 14.4217 3.29818C12.9885 2.98081 11.4969 3.05474 10.1009 3.51298C8.70487 3.97122 7.45718 4.79747 6.49 5.91L1 10M23 14L17.51 19.09C16.5428 20.2025 15.2951 21.0288 13.8991 21.487C12.5031 21.9453 11.0115 22.0192 9.57831 21.7018C8.14509 21.3845 6.82574 20.6889 5.75846 19.6862C4.69118 18.6836 3.91532 17.4137 3.51 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="status-grid">
+                    <div class="status-card" id="apiStatusCard">
+                        <div class="status-header">
+                            <div class="status-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M13 2L3 14L12 14L7 18L17 6L8 6L13 2Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="status-info">
+                                <h3>API Server</h3>
+                                <div class="status-indicator" id="apiStatus">
+                                    <span class="status-dot"></span>
+                                    <span class="status-text">Đang kiểm tra...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="status-details">
+                            <div class="status-metric">
+                                <span class="metric-label">Response Time</span>
+                                <span class="metric-value" id="responseTime">--ms</span>
+                            </div>
+                            <div class="status-metric">
+                                <span class="metric-label">Uptime</span>
+                                <span class="metric-value" id="uptime">99.9%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="status-card">
+                        <div class="status-header">
+                            <div class="status-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="status-info">
+                                <h3>Database</h3>
+                                <div class="status-indicator">
+                                    <span class="status-dot status-online"></span>
+                                    <span class="status-text">Hoạt động bình thường</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="status-details">
+                            <div class="status-metric">
+                                <span class="metric-label">Connections</span>
+                                <span class="metric-value">45/100</span>
+                            </div>
+                            <div class="status-metric">
+                                <span class="metric-label">Load</span>
+                                <span class="metric-value">12%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="status-card">
+                        <div class="status-header">
+                            <div class="status-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M21 16V8C21 6.89543 20.1046 6 19 6H5C3.89543 6 3 6.89543 3 8V16C3 17.1046 3.89543 18 5 18H19C20.1046 18 21 17.1046 21 16Z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M7 10H17" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="status-info">
+                                <h3>CDN</h3>
+                                <div class="status-indicator">
+                                    <span class="status-dot status-online"></span>
+                                    <span class="status-text">Tối ưu</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="status-details">
+                            <div class="status-metric">
+                                <span class="metric-label">Cache Hit</span>
+                                <span class="metric-value">94%</span>
+                            </div>
+                            <div class="status-metric">
+                                <span class="metric-label">Bandwidth</span>
+                                <span class="metric-value">2.1GB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Activity -->
+                <div class="activity-section">
+                    <h3>📊 Hoạt động gần đây</h3>
+                    <div class="activity-list" id="activityList">
+                        <!-- Activity items will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer" id="contact">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Background Circle -->
+                                <circle cx="100" cy="100" r="95" fill="url(#footerBgGradient)" stroke="url(#footerBorderGradient)" stroke-width="4"/>
+                                
+                                <!-- Connection Nodes -->
+                                <g id="footerNodes">
+                                    <circle cx="80" cy="40" r="8" fill="url(#footerNodeGradient)"/>
+                                    <circle cx="120" cy="35" r="8" fill="url(#footerNodeGradient)"/>
+                                    <circle cx="160" cy="50" r="8" fill="url(#footerNodeGradient)"/>
+                                    <circle cx="40" cy="80" r="8" fill="url(#footerNodeGradient)"/>
+                                    <circle cx="35" cy="120" r="8" fill="url(#footerNodeGradient)"/>
+                                    <circle cx="160" cy="120" r="8" fill="url(#footerNodeGradient)"/>
+                                    <circle cx="165" cy="160" r="8" fill="url(#footerNodeGradient)"/>
+                                    <circle cx="80" cy="165" r="8" fill="url(#footerNodeGradient)"/>
+                                    <circle cx="120" cy="160" r="8" fill="url(#footerNodeGradient)"/>
+                                </g>
+                                
+                                <!-- Connection Lines -->
+                                <g id="footerConnections" stroke="url(#footerLineGradient)" stroke-width="6" fill="none">
+                                    <line x1="80" y1="40" x2="100" y2="100"/>
+                                    <line x1="120" y1="35" x2="100" y2="100"/>
+                                    <line x1="160" y1="50" x2="100" y2="100"/>
+                                    <line x1="40" y1="80" x2="100" y2="100"/>
+                                    <line x1="35" y1="120" x2="100" y2="100"/>
+                                    <line x1="160" y1="120" x2="100" y2="100"/>
+                                    <line x1="165" y1="160" x2="100" y2="100"/>
+                                    <line x1="80" y1="165" x2="100" y2="100"/>
+                                    <line x1="120" y1="160" x2="100" y2="100"/>
+                                </g>
+                                
+                                <!-- Central Hub -->
+                                <circle cx="100" cy="100" r="25" fill="url(#footerHubGradient)" stroke="url(#footerHubBorder)" stroke-width="4"/>
+                                
+                                <!-- Tool Icon in Center -->
+                                <g id="footerToolIcon" transform="translate(85, 85)">
+                                    <path d="M5 5L25 25M25 5L5 25M15 0V30M0 15H30" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                </g>
+                                
+                                <!-- Footer Gradients -->
+                                <defs>
+                                    <linearGradient id="footerBgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#0f172a;stop-opacity:0.9"/>
+                                        <stop offset="100%" style="stop-color:#1e293b;stop-opacity:0.9"/>
+                                    </linearGradient>
+                                    
+                                    <linearGradient id="footerBorderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1"/>
+                                        <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1"/>
+                                        <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1"/>
+                                    </linearGradient>
+                                    
+                                    <radialGradient id="footerNodeGradient" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" style="stop-color:#10b981;stop-opacity:1"/>
+                                        <stop offset="100%" style="stop-color:#059669;stop-opacity:1"/>
+                                    </radialGradient>
+                                    
+                                    <linearGradient id="footerLineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.8"/>
+                                        <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.8"/>
+                                    </linearGradient>
+                                    
+                                    <radialGradient id="footerHubGradient" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1"/>
+                                        <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1"/>
+                                    </radialGradient>
+                                    
+                                    <linearGradient id="footerHubBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1"/>
+                                        <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <span>NexusTools</span>
+                        </div>
+                        <p class="footer-description">
+                            Nền tảng công cụ chuyên nghiệp hàng đầu, giúp bạn làm việc hiệu quả hơn mỗi ngày.
+                        </p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Danh mục</h4>
+                        <ul class="footer-links">
+                            <li><a href="tools/text-tools.html">Công cụ văn bản</a></li>
+                            <li><a href="tools/image-tools.html">Công cụ hình ảnh</a></li>
+                            <li><a href="tools/crypto-tools.html">Công cụ mã hóa</a></li>
+                            <li><a href="tools/converter-tools.html">Công cụ chuyển đổi</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Thông tin</h4>
+                        <ul class="footer-links">
+                            <li><a href="#about">Về chúng tôi</a></li>
+                            <li><a href="#contact">Liên hệ</a></li>
+                            <li><a href="#">Chính sách</a></li>
+                            <li><a href="#">Điều khoản</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Kết nối</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.0123 5.05357 17.3674 9.03125 17.9062V12.3438H7.07031V10H9.03125V8.25C9.03125 6.23438 10.0869 5.29688 11.9355 5.29688C12.8393 5.29688 13.7734 5.46875 13.7734 5.46875V7.40625H12.7455C11.7393 7.40625 11.4219 8.02344 11.4219 8.65625V10H13.6719L13.2813 12.3438H11.4219V17.9062C15.3996 17.3674 18 14.0123 18 10Z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M18.244 4.75104C17.558 5.04604 16.825 5.24904 16.057 5.34904C16.838 4.86504 17.441 4.11304 17.751 3.21004C17.014 3.65604 16.194 3.98304 15.326 4.17104C14.625 3.43404 13.605 2.94404 12.461 2.94404C10.317 2.94404 8.582 4.67904 8.582 6.82204C8.582 7.10204 8.61 7.37304 8.664 7.63204C5.799 7.49404 3.254 6.05504 1.532 3.97404C1.229 4.46804 1.057 5.04604 1.057 5.66304C1.057 6.82804 1.641 7.85204 2.519 8.44204C1.89 8.42104 1.296 8.24904 0.777 7.99204V8.03304C0.777 9.84304 2.081 11.349 3.848 11.689C3.553 11.767 3.241 11.808 2.921 11.808C2.698 11.808 2.481 11.788 2.27 11.749C2.709 13.236 4.008 14.318 5.546 14.348C4.33 15.334 2.797 15.956 1.136 15.956C0.853 15.956 0.573 15.94 0.296 15.908C1.853 16.969 3.711 17.594 5.72 17.594C12.453 17.594 16.409 11.87 16.409 7.03904C16.409 6.89204 16.406 6.74504 16.399 6.60004C17.137 6.07704 17.754 5.45604 18.244 4.75104Z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="GitHub">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 1C5.02944 1 1 5.02944 1 10C1 13.9912 3.70545 17.4023 7.40625 18.4785C7.9375 18.5677 8.125 18.2637 8.125 18.002C8.125 17.7647 8.11914 17.1927 8.11426 16.5664C5.5625 17.1562 5.125 15.4687 5.125 15.4687C4.71875 14.3213 4.0625 14.002 4.0625 14.002C3.07812 13.3687 4.15625 13.3906 4.15625 13.3906C5.26562 13.4687 5.8125 14.5312 5.8125 14.5312C6.75 15.9719 8.16211 15.5527 8.21484 15.3437C8.28711 14.9902 8.48438 14.7705 8.69336 14.624C7.00781 14.4111 5.21875 13.7402 5.21875 10.3437C5.21875 9.45117 5.53125 8.71094 6.03125 8.15625C5.97461 8.01074 5.77539 7.21875 6.25195 6.125C6.25195 6.125 6.875 5.91992 8.125 7.0625C8.750 6.90381 9.42188 6.82422 10.0938 6.82129C10.7656 6.82422 11.4375 6.90381 12.0625 7.0625C13.3125 5.91992 13.9375 6.125 13.9375 6.125C14.4141 7.21875 14.2148 8.01074 14.1562 8.15625C14.6562 8.71094 14.9688 9.45117 14.9688 10.3437C14.9688 13.751 13.1699 14.4111 11.4824 14.6123C11.7578 14.8262 12.0127 15.2783 12.0127 15.998C12.0127 16.9951 12.002 17.7647 12.002 18.002C12.002 18.2656 12.1885 18.5713 12.7246 18.4775C16.4277 17.3994 19.1357 13.9893 19.1357 10C19.002 5.02944 14.9726 1 10 1Z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 NexusTools. Tất cả quyền được bảo lưu.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script src="music.js"></script>
+</body>
+</html>
+
