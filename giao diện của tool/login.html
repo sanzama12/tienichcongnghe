@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập - NexusTools</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+        <div class="circle-1"></div>
+        <div class="circle-2"></div>
+    </div>
+
+    <div class="container">
+        <!-- Toast Container -->
+        <div id="toastContainer" class="toast-container"></div>
+
+        <div class="forms-container">
+            <div class="signin-signup">
+                <!-- Sign In Form -->
+                <form action="#" class="sign-in-form" id="loginForm">
+                    <h2 class="title">Đăng Nhập</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Tên đăng nhập" id="loginUsername" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Mật khẩu" id="loginPassword" required />
+                    </div>
+                    <input type="submit" value="Đăng Nhập" class="btn solid" />
+                    <p class="social-text">Hoặc đăng nhập với</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02Z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12s12-5.38 12-12S18.62 0 12 0zm0 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10s-4.48 10-10 10z"/></svg>
+                        </a>
+                    </div>
+                </form>
+
+                <!-- Sign Up Form -->
+                <form action="#" class="sign-up-form" id="registerForm">
+                    <h2 class="title">Đăng Ký</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Tên đăng nhập" id="regUsername" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" id="regEmail" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Mật khẩu" id="regPassword" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Xác nhận mật khẩu" id="regConfirmPassword" required />
+                    </div>
+                    <input type="submit" value="Đăng Ký" class="btn solid" />
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Chưa có tài khoản?</h3>
+                    <p>
+                        Hãy đăng ký ngay để trải nghiệm những công cụ tuyệt vời nhất của NexusTools hoàn toàn miễn phí!
+                    </p>
+                    <button class="btn transparent" id="sign-up-btn">
+                        Đăng Ký
+                    </button>
+                </div>
+                <img src="https://raw.githubusercontent.com/sefyudem/Sliding-Sign-In-Sign-Up-Form/master/img/log.svg" class="image" alt="" />
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Đã có tài khoản?</h3>
+                    <p>
+                        Đăng nhập ngay để tiếp tục công việc của bạn với các công cụ chỉnh sửa chuyên nghiệp.
+                    </p>
+                    <button class="btn transparent" id="sign-in-btn">
+                        Đăng Nhập
+                    </button>
+                </div>
+                <img src="https://raw.githubusercontent.com/sefyudem/Sliding-Sign-In-Sign-Up-Form/master/img/register.svg" class="image" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="auth.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

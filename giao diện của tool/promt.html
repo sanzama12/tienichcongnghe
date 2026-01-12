@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kho Prompt Sản Phẩm - NexusTools</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="promt.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="95" fill="url(#bgGradient)" stroke="url(#borderGradient)" stroke-width="4"/>
+                    <g id="nodes">
+                        <circle cx="80" cy="40" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="120" cy="35" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="160" cy="50" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="40" cy="80" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="35" cy="120" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="160" cy="120" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="165" cy="160" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="80" cy="165" r="8" fill="url(#nodeGradient)"/>
+                        <circle cx="120" cy="160" r="8" fill="url(#nodeGradient)"/>
+                    </g>
+                    <g id="connections" stroke="url(#lineGradient)" stroke-width="6" fill="none">
+                        <line x1="80" y1="40" x2="100" y2="100"/>
+                        <line x1="120" y1="35" x2="100" y2="100"/>
+                        <line x1="160" y1="50" x2="100" y2="100"/>
+                        <line x1="40" y1="80" x2="100" y2="100"/>
+                        <line x1="35" y1="120" x2="100" y2="100"/>
+                        <line x1="160" y1="120" x2="100" y2="100"/>
+                        <line x1="165" y1="160" x2="100" y2="100"/>
+                        <line x1="80" y1="165" x2="100" y2="100"/>
+                        <line x1="120" y1="160" x2="100" y2="100"/>
+                    </g>
+                    <circle cx="100" cy="100" r="25" fill="url(#hubGradient)" stroke="url(#hubBorder)" stroke-width="4"/>
+                    <g id="toolIcon" transform="translate(85, 85)">
+                        <path d="M5 5L25 25M25 5L5 25M15 0V30M0 15H30" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    </g>
+                    <defs>
+                        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#0f172a;stop-opacity:0.9"/>
+                            <stop offset="100%" style="stop-color:#1e293b;stop-opacity:0.9"/>
+                        </linearGradient>
+                        <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1"/>
+                            <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1"/>
+                        </linearGradient>
+                        <radialGradient id="nodeGradient" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" style="stop-color:#10b981;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#059669;stop-opacity:1"/>
+                        </radialGradient>
+                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.8"/>
+                            <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.8"/>
+                        </linearGradient>
+                        <radialGradient id="hubGradient" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1"/>
+                        </radialGradient>
+                        <linearGradient id="hubBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text">NexusTools</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-page="home">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M3 7L10 2L17 7V17C17 17.5304 16.7893 18.0391 16.4142 18.4142C16.0391 18.7893 15.5304 19 15 19H5C4.46957 19 3.96086 18.7893 3.58579 18.4142C3.21071 18.0391 3 17.5304 3 17V7Z" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M8 19V11H12V19" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                        <span class="nav-text">Trang chủ</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="muakey.html" class="nav-link" data-page="buykey">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"/>
+                            <path d="M15 9L9 15M9 9L15 15"/>
+                        </svg>
+                        <span class="nav-text">Nâng Cấp VIP</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="chinhanhthe.html" class="nav-link" data-page="text">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M8 6H16M8 12H16M8 18H14M4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6C2 4.89543 2.89543 4 4 4Z" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                        <span class="nav-text">ẢNH THẺ MASTER</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="promt.html" class="nav-link" data-page="image">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <rect x="3" y="5" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="7.5" cy="9.5" r="1.5" fill="currentColor"/>
+                            <path d="M14 13L10 9L5 14" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                        <span class="nav-text">PROMPT CHỈNH ẢNH AI</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="admin.html" class="nav-link" data-page="admin">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                             <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" />
+                        </svg>
+                        <span class="nav-text">Admin Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 2V4M10 16V18M4 10H2M6.31412 6.31412L4.8999 4.8999M15.6859 6.31412L17.1001 4.8999M6.31412 13.6859L4.8999 15.1001M15.6859 13.6859L17.1001 15.1001M18 10H16M14 10C14 12.2091 12.2091 14 10 14C7.79086 14 6 12.2091 6 10C6 7.79086 7.79086 6 10 6C12.2091 6 14 7.79086 14 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="nav-text">Chế độ tối</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <div class="container">
+            <header class="page-header">
+                <h1>✨ Kho Prompt Sản Phẩm</h1>
+                <p>Bộ sưu tập prompt chất lượng cao cho việc chỉnh sửa và tạo ảnh sản phẩm</p>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+                </div>
+            </header>
+
+            <!-- Product Grid -->
+            <div class="prompt-grid" id="promptGrid">
+                <!-- Items will be injected here by JS -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="promptModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImg" src="" alt="Product">
+                </div>
+                <div class="modal-info">
+                    <h3>Câu lệnh Prompt</h3>
+                    <div class="prompt-box">
+                        <code id="modalPrompt"></code>
+                        <button id="copyBtn" class="copy-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            Sao chép
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast">Đã sao chép prompt!</div>
+
+    <script src="promt.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "Việt Edit Master - Tạo Ảnh Thẻ",
+  "short_name": "Việt Edit",
+  "description": "Tạo ảnh thẻ chuyên nghiệp theo tiêu chuẩn Việt Nam và quốc tế",
+  "start_url": "login.html",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#7877c6",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
